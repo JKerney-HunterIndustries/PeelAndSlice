@@ -1,11 +1,12 @@
-const ntscFrameRate = 33;
+let ntscFrameRate;
+let tvType;
 
 function getCreateCountdownFrames(frameRate, http, videoMaker) {
     const type = http.request.params["TvFormat"];
     let frames = 0;
 
     if ("ntsc" === type) {
-        frames = (new TvType(type, frameRate)).getFrameRate();
+        frames = tvType.getFrameRate();
     }
 
     for (let i = 0; i < frames; i++) {
@@ -13,13 +14,11 @@ function getCreateCountdownFrames(frameRate, http, videoMaker) {
     }
 }
 
-function TvType(tvType, frameRate) {
+function TvType(tvType) {
     BASE_FRAMERATE = 0;
-    this.frameRate = frameRate;
-}
+    this.frameRate = ntscFrameRate;
 
-TvType.prototype = {
-    getFrameRate: function () {
+    this.getFrameRate = function () {
         if (tvType === 'ntsc') {
             if (this.frameRate + this.BASE_FRAMERATE > 0) {
                 return this.frameRate + this.BASE_FRAMERATE;
@@ -30,7 +29,10 @@ TvType.prototype = {
             return -1;
         }
     }
-};
+}
+
+tvType = new TvType();
+ntscFrameRate = 33;
 
 module.exports = {
     createCountdownFrames: getCreateCountdownFrames.bind(null, ntscFrameRate)
