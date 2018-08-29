@@ -15,6 +15,7 @@ const sourceFiles = [
 
 const testFiles = [
     'test/**/*.js',
+    'tests/**/*.js',
     'ignored/**/*.js'
 ];
 
