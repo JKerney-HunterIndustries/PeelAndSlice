@@ -1,0 +1,9 @@
+let framerate;
+describe('framerate', function() {
+    beforeEach(function() {
+        framerate = require('../app/quiz/framerate');
+    });
+    it('Dose Something', function() {
+
+    });
+});
