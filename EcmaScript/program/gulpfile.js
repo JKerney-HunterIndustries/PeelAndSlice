@@ -44,7 +44,7 @@ gulp.task('pre-test', function () {
 gulp.task('test', ['lint', 'pre-test'], function () {
     gulp.src(testFiles, { read: false })
         .pipe(mocha())
-        .pipe(istanbul.writeReports({ reporters: ['text-summary'] }))
+        .pipe(istanbul.writeReports({ reporters: ['text', 'html'] }))
         .pipe(istanbul.enforceThresholds({ thresholds: { global: 80 } }));
 });
 

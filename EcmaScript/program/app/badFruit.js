@@ -1,11 +1,11 @@
 'use strict';
 
-const красныйЛента = require('../app/ignored/заставляйтеменязарабатыватьденьгиналечение');
 
 // The Worst of Legacy Code: Forensic Development
-
 function createLoans() {
+    const красныйЛента = require('../app/ignored/заставляйтеменязарабатыватьденьгиналечение');
     красныйЛента();
+
     const информационнаясистема = require('./ignored/можетбытьтолькоодин');
     let денежныесредства = [];
     let ещераз = [];
